@@ -1,0 +1,54 @@
+@page "/tnid-sold"
+@rendermode InteractiveServer
+
+<PageTitle>Tnid Sold Page</PageTitle>
+
+<h1>Seller Receipt</h1>
+
+<hr />
+
+<section id="buyer-seller-section" class="mb-4">
+    <div id="buyer-seller-info" class="mb-2 fs-5">
+        <label class="align-top d-block fs-3">Buyer Info</label>
+
+        <div class="p-2 w-25 m-1 border border-1 border-primary mb-2" id="buyer-info">
+            <span class="d-block">Buyer Name: @buyerFullName</span>
+            <span class="d-block">Email: buyer_email@gmail.com</span>
+            <span class="d-block">Other Info: {Other Info}</span>
+        </div>
+
+        <label class="align-top d-block fs-3">Seller Info</label>
+
+        <div class="p-2 w-25 m-1 border border-1 border-primary" id="seller-info">
+            <span class="d-block">Seller Name: @sellerFullName</span>
+            <span class="d-block">Email: seller_email@gmail.com</span>
+            <span class="d-block">Other Info: {Other Info}</span>
+        </div>
+    </div>
+</section>
+
+@* * you have had $xx.xx deposited into your specificed account (xxxxxxxxx1234) *@
+@* You have been paid by {Buyer Name} for transaction titled {Minecraft Cape Account} *@
+@* Escrow transaction is now complete *@
+@* Digital goods have been delivered to {Buyer Name} *@
+@* Contact Buyer *@
+
+<section id="transaction-verification-section">
+    <div id="transaction-verification" class="p-2 w-50 m-1 border border-1 border-primary mb-2 fs-4">
+        <span class="d-block">You have had <b>$800.00</b> deposited into your specificed account (<b>xxxxxxxxxxxx1234</b>)</span>
+        <span class="d-block">You have been paid by @buyerFullName for transaction titled <b>Minecraft Cape Account</b></span>
+        <span class="d-block">Escrow transaction is now complete.</span>
+        <span class="d-block">Digital goods have been delivered to @buyerFullName</span>
+    </div>
+</section>
+
+<section id="functionality-buttons">
+    <button class="btn btn-lg btn-outline-primary">Contact Buyer</button>
+</section>
+
+
+
+@code {
+    private string buyerFullName = Shared.BuyerFullName;
+    private string sellerFullName = Shared.SellerFullName;
+}

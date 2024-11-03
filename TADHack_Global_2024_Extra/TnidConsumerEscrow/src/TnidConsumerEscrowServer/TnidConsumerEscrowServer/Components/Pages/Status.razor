@@ -1,0 +1,46 @@
+@page "/tnid-status"
+@rendermode InteractiveServer
+
+<PageTitle>Tnid Status Page</PageTitle>
+
+<h1>Status</h1>
+
+@* Buyer/Seller Info *@
+@* Transaction Name: {Minecraft Cape Account} *@
+@* Verification Condition: Representative can log in using the specified credentials and has changed the password to the Minecraft account.*@
+@* Cancellation Condition: Password is changed back to the original password so seller can access again. *@
+@* Currently waiting on: { Seller to input account information } *@
+
+<section id="buyer-seller-section" class="mb-4">
+    <div id="buyer-seller-info" class="mb-2 fs-5">
+        <label class="align-top d-block fs-3">Buyer Info</label>
+
+        <div class="p-2 w-25 m-1 border border-1 border-primary mb-2" id="buyer-info">
+            <span class="d-block">Buyer Name: @buyerFullName</span>
+            <span class="d-block">Email: buyer_email@gmail.com</span>
+            <span class="d-block">Other Info: {Other Info}</span>
+        </div>
+
+        <label class="align-top d-block fs-3">Seller Info</label>
+
+        <div class="p-2 w-25 m-1 border border-1 border-primary" id="seller-info">
+            <span class="d-block">Seller Name: @sellerFullName</span>
+            <span class="d-block">Email: seller_email@gmail.com</span>
+            <span class="d-block">Other Info: {Other Info}</span>
+        </div>
+    </div>
+</section>
+
+<section id="transaction-info-section" class="p-2 w-50 m-1 border border-1 border-primary mb-2 fs-4">
+    <div id="transaction-info">
+        <span class="d-block">Transaction Name: <b>Minecraft Cape Account</b></span>
+        <span class="d-block">Verification Condition: <b>Representative can log in using the specified credentials and has changed the password to the Minecraft account.</b></span>
+        <span class="d-block">Cancellation Condition: <b>Password is changed back to the original password so seller can access again.</b></span>
+        <span class="d-block">Currently waiting on: <b>Seller to input account information</b></span>
+    </div>
+</section>
+
+@code {
+    private string buyerFullName = Shared.BuyerFullName;
+    private string sellerFullName = Shared.SellerFullName;
+}

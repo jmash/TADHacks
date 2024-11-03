@@ -1,0 +1,34 @@
+﻿@page "/tnid-api-test"
+@using TnidConsumerEscrowServer.TnidApi
+@rendermode InteractiveServer
+
+<PageTitle>User Transactions Lookup</PageTitle>
+
+<h1>Look up user transactions:</h1>
+
+<input id="login-phone-number-input" @bind="_phoneNumber"/>
+
+
+<p role="status">User full name from TNID API: @fullName</p>
+
+<button class="btn btn-primary" @onclick="MakeApiRequest">Look Up</button>
+
+@code {
+
+	private string fullName = "";
+	private string _phoneNumber = "";
+
+	private async Task MakeApiRequest()
+	{
+		var davidTnidPhone = "14075554529";
+		
+		var response = await TnidPeopleSearcher.SearchByPhoneNumber(_phoneNumber);
+		Shared.BuyerFullName = TnidResponseParser.GetUserFullName(response);
+		
+		response = await TnidPeopleSearcher.SearchByPhoneNumber(davidTnidPhone);
+		Shared.SellerFullName = TnidResponseParser.GetUserFullName(response);
+
+		fullName = Shared.BuyerFullName;
+	}
+}
+ 

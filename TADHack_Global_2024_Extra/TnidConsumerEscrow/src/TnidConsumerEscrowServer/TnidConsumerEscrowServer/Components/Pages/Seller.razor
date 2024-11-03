@@ -1,0 +1,60 @@
+@page "/tnid-seller"
+@rendermode InteractiveServer
+
+<PageTitle>Tnid Seller Page</PageTitle>
+
+<section id="send-payment" class="mb-4">
+    <button class="btn btn-lg btn-primary button_glow">Confirm Sale of <b>Minecraft Cape Account</b></button>
+</section>
+
+<section id="buyer-seller-section" class="mb-4">
+    <div id="buyer-seller-info" class="mb-2 fs-5">
+        <label class="align-top d-block fs-3">Buyer Info</label>
+
+        <div class="p-2 w-25 m-1 border border-1 border-primary mb-2" id="buyer-info">
+            <span class="d-block">Buyer Name: <b>@buyerFullName</b></span>
+            <span class="d-block">Email: <b>buyer_email@gmail.com</b></span>
+            <span class="d-block">Other Info: {Other Info}</span>
+        </div>
+
+        <label class="align-top d-block fs-3">Seller Info</label>
+
+        <div class="p-2 w-25 m-1 border border-1 border-primary" id="seller-info">
+            <span class="d-block">Seller Name: <b>@sellerFullName</b></span>
+            <span class="d-block">Email: <b>seller_email@gmail.com</b></span>
+            <span class="d-block">Other Info: {Other Info}</span>
+        </div>
+    </div>
+</section>
+
+@* <button class="btn btn-primary" @onclick="IncrementCount">Click me</button> *@
+@* * send digital goods button *@
+@* * show buyer/seller info *@
+@* * show digital goods info *@
+
+@* You are about to send {Information} to {Buyer Name} for the transaction labeled {Minecraft Cape Account} *@
+@* Payment terms: $xx.xx *@ 
+@* Payment will be held in Escrow until digital goods are added/verified. *@
+@* Contact buyer *@
+@* * send payment button *@
+@* * show buyer/seller info *@
+@* * show payment info *@
+
+<section id="sale-info" class="p-2 w-50 m-1 border border-1 border-primary mb-2 fs-4">
+    <div>
+        <span class="d-block">You are about to sell <b>@buyerFullName</b> the product labeled <b>Minecraft Cape Account</b></span>
+        <span class="d-block">Payment terms: <b>$800.00</b></span>
+        <span class="d-block">Payment will be held in Escrow until digital goods are added/verified.</span>
+    </div>
+</section>
+
+<section id="functionality-buttons">
+    <button class="btn btn-lg btn-outline-primary">Show Buyer Info</button>
+    <button class="btn btn-lg btn-outline-primary">Show Payment Info</button>
+    <button class="btn btn-lg btn-outline-primary">Contact Buyer</button>
+</section>
+
+@code {
+private string buyerFullName = Shared.BuyerFullName;
+private string sellerFullName = Shared.SellerFullName;
+}

@@ -1,0 +1,77 @@
+@page "/tnid-bought"
+@rendermode InteractiveServer
+
+<PageTitle>Tnid Bought Page</PageTitle>
+
+<h1>Buyer Receipt</h1>
+
+<hr/>
+
+@* <button class="btn btn-primary" @onclick="IncrementCount">Click me</button> *@
+@* * display digital goods in text *@
+@* * show buyer/seller info *@
+
+<section id="digital-goods-section">
+    <div id="digital-goods-display" class="mb-2">
+        <label class="align-top d-block fs-3">Digital Goods</label>
+        <select class="border border-light" multiple>
+            <option>Minecraft Cape Account</option>
+        </select>
+    </div>
+</section>
+
+<section id="buyer-seller-section" class="mb-2">
+    <div id="buyer-seller-info" class="mb-2 fs-5">
+        <label class="align-top d-block fs-3">Buyer Info</label>
+        
+        <div class="p-2 w-25 m-1 border border-1 border-primary mb-2" id="buyer-info">
+            <span class="d-block">Buyer Name: <b>@buyerFullName</b></span>
+            <span class="d-block">Email: <b>buyer_email@gmail.com</b></span>
+            <span class="d-block">Other Info: {Other Info}</span>
+        </div>
+        
+        <label class="align-top d-block fs-3">Seller Info</label>
+        
+        <div class="p-2 w-25 m-1 border border-1 border-primary" id="seller-info">
+            <span class="d-block">Seller Name: @sellerFullName</span>
+            <span class="d-block">Email: <b>seller_email@gmail.com</b></span>
+            <span class="d-block">Other Info: {Other Info}</span>
+        </div>
+    </div>
+</section>
+
+@* You have received {Information} from {Seller Name} for the transaction labeled {Minecraft Cape Account} *@
+@* Payment terms: $xx.xx *@
+@* Escrow transaction now complete *@
+@* Contact seller *@
+
+<label class="align-top d-block fs-3">Receipt Info</label>
+<section id="receipt-section" class="border border-1 border-primary mb-2 p-2 fs-5 w-50">
+    <div id="receipt-info">
+        <p>
+            You have received <b>Account Information</b> from @sellerFullName for the transaction labeled <b>Minecraft Cape Account</b>
+        </p>
+    </div>
+
+    <div id="payment-terms-info">
+        <p>
+            Payment terms: <b>$800.00</b>
+        </p>
+    </div>
+
+    <div id="escrow-confirmation" class="mb-2">
+        Escrow transaction now complete
+    </div>
+</section>
+
+<section id="contact-seller-section">
+    <div id="contact-seller">
+        <button class="btn btn-lg btn-outline-primary">Contact Seller</button>
+    </div>
+</section>
+
+
+@code {
+    private string buyerFullName = Shared.BuyerFullName;
+    private string sellerFullName = Shared.SellerFullName;
+}
